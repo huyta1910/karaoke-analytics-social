@@ -4,7 +4,6 @@
     )
 }}
 
--- Generate date dimension from the range of dates in our data
 with date_spine as (
     select
         date_add(

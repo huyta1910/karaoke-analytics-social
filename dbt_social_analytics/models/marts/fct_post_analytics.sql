@@ -61,7 +61,6 @@ enriched as (
         end as time_of_day,
 
         -- Rolling averages (last 7 posts)
-        -- Note: ORDER BY inside OVER() is fine. It is only the final global ORDER BY that causes issues.
         avg(impressions) over (
             order by posted_at 
             rows between 6 preceding and current row

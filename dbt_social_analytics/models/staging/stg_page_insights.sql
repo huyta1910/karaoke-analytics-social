@@ -14,7 +14,6 @@ renamed as (
         metric_name,
         value as metric_value,
         ingestion_time,
-        -- Add row number to handle potential duplicates
         row_number() over (
             partition by date, metric_name 
             order by ingestion_time desc
@@ -22,7 +21,6 @@ renamed as (
     from source
 )
 
--- Keep only the most recent ingestion for each date/metric combination
 select
     metric_date,
     metric_name,

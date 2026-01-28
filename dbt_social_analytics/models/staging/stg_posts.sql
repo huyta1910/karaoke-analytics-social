@@ -18,11 +18,9 @@ renamed as (
         engaged_users,
         likes,
         ingestion_time,
-        -- Extract date parts for analysis
         date(created_at) as post_date,
         extract(hour from created_at) as post_hour,
         extract(dayofweek from created_at) as day_of_week,
-        -- Add row number to handle potential duplicates from WRITE_APPEND
         row_number() over (
             partition by post_id 
             order by ingestion_time desc
@@ -30,7 +28,6 @@ renamed as (
     from source
 )
 
--- Keep only the most recent ingestion for each post
 select
     post_id,
     posted_at,
