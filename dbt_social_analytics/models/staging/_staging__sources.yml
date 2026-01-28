@@ -1,0 +1,39 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw data ingested from Facebook and GA4"
+    database: caramel-spot-474502-p2
+    schema: social_analytics
+    tables:
+      - name: page_insights_daily
+        description: "Daily page-level metrics from Facebook"
+        columns:
+          - name: date
+            description: "Date of the metric"
+          - name: metric_name
+            description: "Name of the metric (page_post_engagements, page_views_total, etc.)"
+          - name: value
+            description: "Metric value"
+          - name: ingestion_time
+            description: "When the data was ingested"
+
+      - name: post_performance
+        description: "Individual post performance metrics"
+        columns:
+          - name: post_id
+            description: "Unique Facebook post ID"
+          - name: created_at
+            description: "When the post was created"
+          - name: message
+            description: "Post message content (truncated to 200 chars)"
+          - name: post_url
+            description: "Permalink to the post"
+          - name: impressions
+            description: "Number of times the post was shown"
+          - name: engaged_users
+            description: "Number of unique users who engaged"
+          - name: likes
+            description: "Number of likes"
+          - name: ingestion_time
+            description: "When the data was ingested"

@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: fct_daily_page_metrics
+    description: "Daily page-level metrics pivoted into columns"
+    columns:
+      - name: metric_date
+        description: "Date of the metrics"
+        tests:
+          - unique
+          - not_null
+      - name: page_post_engagements
+        description: "Total post engagements for the day"
+      - name: page_views_total
+        description: "Total page views for the day"
+      - name: page_video_views
+        description: "Total video views for the day"
+      - name: page_reactions_like
+        description: "Total like reactions for the day"
+      - name: total_engagement
+        description: "Sum of engagements and reactions"
+
+  - name: fct_post_analytics
+    description: "Enriched post-level analytics with engagement metrics"
+    columns:
+      - name: post_id
+        description: "Unique post identifier"
+        tests:
+          - unique
+          - not_null
+      - name: engagement_rate_pct
+        description: "Engaged users / impressions * 100"
+      - name: like_rate_pct
+        description: "Likes / impressions * 100"
+      - name: day_name
+        description: "Day of week when post was created"
+      - name: time_of_day
+        description: "Morning/Afternoon/Evening/Night bucket"
+
+  - name: dim_date
+    description: "Date dimension table"
+    columns:
+      - name: date_day
+        description: "Calendar date"
+        tests:
+          - unique
+          - not_null

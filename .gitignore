@@ -4,3 +4,16 @@ gcp-credentials/
 *-credentials.json
 *.json
 service-account*.json
+
+# dbt
+dbt_social_analytics/target/
+dbt_social_analytics/dbt_packages/
+dbt_social_analytics/logs/
+dbt_social_analytics/profiles.yml
+
+# Airflow
+airflow/logs/
+airflow/plugins/
+airflow/credentials/
+__pycache__/
+*.pyc
