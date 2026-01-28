@@ -1,8 +1,3 @@
-"""
-Airflow DAG for Social Analytics Pipeline
-Runs daily: Ingestion (Facebook/GA4) -> dbt Transformation
-"""
-
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
