@@ -118,7 +118,7 @@ def main():
             
         current = chunk_end + timedelta(days=1)
 
-    print("🏁 Backfill Complete.")
+    print("Backfill Complete.")
 
 if __name__ == "__main__":
     main()

@@ -26,7 +26,7 @@ class FacebookClient:
 
     def get_page_start_date(self):
         url = f"{self.base_url}/{Config.FB_PAGE_ID}"
-        params = {'fields': 'created_time', 'access_token': Config.FB_ACCESS_TOKEN}
+        params = {'fields': 'created_time', 'access_token': Config.FB_ACCESS_TOKEN} 
         try:
             resp = requests.get(url, params=params).json()
             created_str = resp.get('created_time')
