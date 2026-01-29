@@ -41,16 +41,12 @@ dbt_social_analytics/
 ## Running Models
 
 ```bash
-# Run all models
 dbt run
 
-# Run specific model
 dbt run --select fct_post_analytics
 
-# Run with tests
 dbt build
 
-# Generate docs
 dbt docs generate
 dbt docs serve
 ```
